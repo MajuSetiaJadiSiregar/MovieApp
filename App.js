@@ -1,19 +1,18 @@
-import React, {useEffect} from 'react';
-import {useDispatch} from 'react-redux';
-import { Text, View } from 'react-native';
-import {readMovie} from './src/features/movieSlice';
+import React from 'react';
+import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {NavigationContainer} from '@react-navigation/native';
+import Movie from './src/view/Movie';
+import Tv from './src/view/Tv';
 
+const Tab = createMaterialTopTabNavigator();
 const App = () => {
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(readMovie());
-  },[dispatch])
   return (
-    <View>
-      <Text>maju</Text>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="movie" component={Movie} />
+        <Tab.Screen name="tv" component={Tv} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
 
