@@ -6,6 +6,7 @@ export const readMovie = createAsyncThunk("movie/readMovie", async () => {
    return response.data.results;
 });
 
+
 const movieEntity = createEntityAdapter({
    selectId: (movie) => movie.id
 });

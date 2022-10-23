@@ -3,27 +3,28 @@ import { StyleSheet } from 'react-native';
 import {Card, Button , Title ,Paragraph } from 'react-native-paper';
 import {dotString} from '../helper';
 
+
 const CardComponent = (props) => {
-	
+
 	return(
-	<Card style={Styles.container}>
 
-		<Card.Content>
-			<Title>{props.title}</Title>
-		</Card.Content>
+		<Card style={Styles.container}>
 
-		<Card.Cover source={{ uri: `https://image.tmdb.org/t/p/original${props.image}`}} />
+			<Card.Content>
+				<Title>{props.title}</Title>
+			</Card.Content>
 
-		<Card.Content>
-			<Paragraph>{dotString(props.overview)}</Paragraph>
-		</Card.Content>
+			<Card.Cover source={{ uri: `https://image.tmdb.org/t/p/original${props.image}`}} />
 
-		<Card.Actions>
-			<Button>Detail</Button>
-		</Card.Actions>
+			<Card.Content>
+				<Paragraph>{dotString(props.overview)}</Paragraph>
+			</Card.Content>
 
-	</Card>
-		
+			<Card.Actions>
+				<Button onPress={props.onClick}>Detail</Button>
+			</Card.Actions>
+
+		</Card>
 	)
 }
 export default CardComponent;
